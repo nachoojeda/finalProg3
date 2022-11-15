@@ -106,7 +106,7 @@ registrarUsuario(email,pass, userName, bio, foto){
     
     
                 {
-                    this.state.email =="" || this.state.password =="" || this.state.usuario == "" ? //condiciones que se tienen que cumplir. Si alguna se cumple entonces me muestra el boton que esta abajo
+                    this.state.email =="" || this.state.password =="" || this.state.usuario == "" ? 
                         <TouchableOpacity>
                             <Text style={styles.botonerror}>Registrarme</Text>
                         </TouchableOpacity>
