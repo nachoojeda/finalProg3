@@ -94,34 +94,65 @@ loguearUsuario(email,pass){
 const styles = StyleSheet.create({
 
     contenedor:{
-
+        flex:1,
+        backgroundColor: 'rgb(0,0,0)',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     titulo:{
-
+        fontFamily: 'monospace',
+         fontSize: 40,
+         margin: 35,
+         color: 'rgb(128, 128, 128)'
+        
     },
 
     formulario:{
+        backgroundColor: 'rgb(128, 128, 128)',
+        borderRadius: 8,
+        padding: 20
 
     },
 
     error:{
-
+        fontFamily: 'monospace',
+    fontSize: 8,
+    margin: 5,
+    color: 'rgb(128, 128, 128)'
     },
 
     texto:{
+    backgroundColor: 'rgb(0,0,0)',
+    fontFamily: 'monospace',
+    fontSize: 13,
+    margin: 14,
+    borderRadius: 12,
+    textAlign: 'center',
+    color: 'rgb(128, 128, 128)',
+    padding: 8
 
     },
 
     botonerror:{
+    fontFamily: 'monospace',
+    fontSize: 16,
+    margin: 15,
+    backgroundColor: 'rgb(105,105,105)',
+    borderRadius: 20,
+    textAlign: 'center',
+    padding: 5
 
     },
 
     boton:{
-
+        
     },
 
     link:{
+        fontFamily: 'monospace',
+        fontSize:12,
+        margin: 3,
 
     }
 
