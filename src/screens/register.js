@@ -51,7 +51,11 @@ registrarUsuario(email,pass, userName, bio, foto){
             return(
                 <View style={styles.contenedor}>
     
-                    
+                 <Image
+                    style = {styles.foto}
+                    source = {require('../../assets/foto.png')}
+                    resizeMode = 'contain'
+                />
     
     
                     <Text style={styles.titulo}>Regístrate</Text>
@@ -186,9 +190,17 @@ registrarUsuario(email,pass, userName, bio, foto){
         link:{
             fontFamily: 'monospace',
             fontSize:12,
-            margin: 3,
+            margin: 3
+
+        },
+
+        foto:{
+            height: 170,
+            width: 140
 
         }
+
+        
 
     })
     

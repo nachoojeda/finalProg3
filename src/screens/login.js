@@ -38,7 +38,11 @@ loguearUsuario(email,pass){
         return(
             <View style={styles.contenedor}>
 
-                
+            <Image
+                style = {styles.foto}
+                source = {require('../../assets/foto.png')}
+                resizeMode = 'contain'
+            />
 
 
                 <Text style={styles.titulo}>Logueate</Text>
@@ -153,6 +157,12 @@ const styles = StyleSheet.create({
         fontFamily: 'monospace',
         fontSize:12,
         margin: 3,
+
+    },
+
+    foto:{
+        height: 170,
+        width: 140
 
     }
 
