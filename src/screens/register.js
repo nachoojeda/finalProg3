@@ -49,7 +49,7 @@ registrarUsuario(email,pass, userName, bio, foto){
 
         render(){
             return(
-                <View style={styles.container}>
+                <View style={styles.contenedor}>
     
                     
     
@@ -57,8 +57,8 @@ registrarUsuario(email,pass, userName, bio, foto){
                     <Text style={styles.titulo}>Regístrate</Text>
                     
                     
-                    <View style={styles.form}>
-                    <Text style={styles.errors}>{this.state.errors}</Text>
+                    <View style={styles.formulario}>
+                    <Text style={styles.error}>{this.state.errors}</Text>
     
     
                         <TextInput 
@@ -70,7 +70,7 @@ registrarUsuario(email,pass, userName, bio, foto){
                                 })
                             }
                             value = {this.state.email}
-                            style={styles.campo}
+                            style={styles.texto}
                         />
                         <TextInput 
                             placeholder= 'password'
@@ -78,28 +78,28 @@ registrarUsuario(email,pass, userName, bio, foto){
                             secureTextEntry = {true}
                             onChangeText={ texto => this.setState({password : texto})}
                             value = {this.state.password}
-                            style={styles.campo}
+                            style={styles.texto}
                         />
                         <TextInput 
                             placeholder= 'Nombre de Usuario'
                             keyboardType= 'default'
                             onChangeText={ texto => this.setState({usuario : texto})}
                             value = {this.state.usuario}
-                            style={styles.campo}
+                            style={styles.texto}
                         />
                         <TextInput 
                             placeholder= 'Biografía'
                             keyboardType= 'default'
                             onChangeText={ texto => this.setState({bio : texto})}
                             value = {this.state.bio}
-                            style={styles.campo}
+                            style={styles.texto}
                         />  
                         <TextInput 
                             placeholder= 'Foto de Perfil'
                             keyboardType= 'default'
                             onChangeText={ texto => this.setState({foto : texto})}
                             value = {this.state.foto}
-                            style={styles.campo}
+                            style={styles.texto}
                         />    
     
                 
@@ -124,6 +124,42 @@ registrarUsuario(email,pass, userName, bio, foto){
             )
         }
     }
+
+    const styles = StyleSheet.create({
+
+        contenedor:{
+
+        },
+
+        titulo:{
+
+        },
+
+        formulario:{
+
+        },
+
+        error:{
+
+        },
+
+        texto:{
+
+        },
+
+        botonerror:{
+
+        },
+
+        boton:{
+
+        },
+
+        link:{
+
+        }
+
+    })
     
     
     

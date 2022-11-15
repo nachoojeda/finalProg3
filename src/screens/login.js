@@ -36,7 +36,7 @@ loguearUsuario(email,pass){
 
     render(){
         return(
-            <View style={styles.container}>
+            <View style={styles.contenedor}>
 
                 
 
@@ -44,8 +44,8 @@ loguearUsuario(email,pass){
                 <Text style={styles.titulo}>Logueate</Text>
                 
                 
-                <View style={styles.form}>
-                <Text style={styles.errors}>{this.state.errors}</Text>
+                <View style={styles.formulario}>
+                <Text style={styles.error}>{this.state.errors}</Text>
 
 
                     <TextInput 
@@ -57,7 +57,7 @@ loguearUsuario(email,pass){
                             })
                         }
                         value = {this.state.email}
-                        style={styles.campo}
+                        style={styles.texto}
                     />
                     <TextInput 
                         placeholder= 'password'
@@ -65,7 +65,7 @@ loguearUsuario(email,pass){
                         secureTextEntry = {true}
                         onChangeText={ texto => this.setState({password : texto})}
                         value = {this.state.password}
-                        style={styles.campo}
+                        style={styles.texto}
                     />
 
             
@@ -91,6 +91,40 @@ loguearUsuario(email,pass){
     }
 }
 
+const styles = StyleSheet.create({
 
+    contenedor:{
+
+    },
+
+    titulo:{
+
+    },
+
+    formulario:{
+
+    },
+
+    error:{
+
+    },
+
+    texto:{
+
+    },
+
+    botonerror:{
+
+    },
+
+    boton:{
+
+    },
+
+    link:{
+
+    }
+
+})
 
 export default Login;
