@@ -83,9 +83,11 @@ loguearUsuario(email,pass){
                 :
                     <TouchableOpacity onPress={ () => this.loguearUsuario ( this.state.email, this.state.password,)}>
                         <Text style={styles.boton}>Loguearme</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity>                  
             }
                     <Text onPress={ () => this.props.navigation.navigate ("Register")} style={styles.link}>¿No tenés una cuenta? Registrate</Text>
+
+                    <Text onPress={ () => this.props.navigation.navigate ("Home")} style={styles.link}>Home </Text>
                     
                 </View>
             </View>

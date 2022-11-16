@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 
 import Register from '../screens/Register';
 import Login from '../screens/Login';
-// import Home from '../screens/Home';
+ import Home from '../screens/Home/Home';
 
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +16,7 @@ function Navigation() {
       <Stack.Navigator>
         <Stack.Screen name='Register' component={Register} options= {{ headerShown : false}}/>
         <Stack.Screen name='Login' component={Login} options= {{ headerShown : false}}/>
-        {/* <Stack.Screen name='Home' component={Home} options= {{ headerShown : false}}/> */}
+        <Stack.Screen name='Home' component={Home} options= {{ headerShown : false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   ); 
