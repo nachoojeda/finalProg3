@@ -87,7 +87,7 @@ loguearUsuario(email,pass){
             }
                     <Text onPress={ () => this.props.navigation.navigate ("Register")} style={styles.link}>¿No tenés una cuenta? Registrate</Text>
 
-                    <Text onPress={ () => this.props.navigation.navigate ("Home")} style={styles.link}>Home </Text>
+                    <Text onPress={ () => this.props.navigation.navigate ("TabNavigation")} style={styles.link}>Home </Text>
                     
                 </View>
             </View>
