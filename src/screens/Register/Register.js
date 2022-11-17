@@ -37,7 +37,7 @@ registrarUsuario(email,pass, userName, bio, foto){
                         errors: ""
                     })
                    
-                    this.props.navigation.navigate("Inicio")
+                    this.props.navigation.navigate("Login")
                 })
                 .catch(error => console.log(error))    
         })

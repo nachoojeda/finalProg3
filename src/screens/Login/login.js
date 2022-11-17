@@ -15,7 +15,7 @@ class Login extends Component {
     componentDidMount(){
         auth.onAuthStateChanged(user => {
             if(user){
-                this.props.navigation.navigate('Home')
+                this.props.navigation.navigate('TabNavigation')
             } 
            
         })
@@ -24,7 +24,7 @@ class Login extends Component {
 loguearUsuario(email,pass){
     auth.signInWithEmailAndPassword(email, pass)
     .then( res => {
-        this.props.navigation.navigate("Home")
+        this.props.navigation.navigate("TabNavigation")
     })
     .catch(error => 
         this.setState({
@@ -87,7 +87,6 @@ loguearUsuario(email,pass){
             }
                     <Text onPress={ () => this.props.navigation.navigate ("Register")} style={styles.link}>¿No tenés una cuenta? Registrate</Text>
 
-                    <Text onPress={ () => this.props.navigation.navigate ("TabNavigation")} style={styles.link}>Home </Text>
                     
                 </View>
             </View>
