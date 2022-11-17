@@ -152,7 +152,13 @@ const styles = StyleSheet.create({
     },
 
     boton:{
-        
+        fontFamily: 'monospace',
+        fontSize: 16,
+        margin: 15,
+        backgroundColor: 'rgb(105,105,105)',
+        borderRadius: 20,
+        textAlign: 'center',
+        padding: 5  
     },
 
     link:{
