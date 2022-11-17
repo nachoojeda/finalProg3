@@ -12,8 +12,13 @@ export default class extends Component {
         }
     }
 
-    enviar(text){
+    enviar(description){
         db.collection('post').add({
+            owner: auth.currentUser.email,
+            createdAt: Date.now(),
+            description: description,
+            likes: [],
+            comments:[]
 
         })
     }
