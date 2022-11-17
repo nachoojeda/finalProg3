@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {auth, db} from '../firebase/config';
+import {auth, db} from '../../firebase/config';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image} from 'react-native';
 
 class Login extends Component {
@@ -40,7 +40,7 @@ loguearUsuario(email,pass){
 
             <Image
                 style = {styles.foto}
-                source = {require('../../assets/foto.png')}
+                source = {require('../../../assets/foto.png')}
                 resizeMode = 'contain'
             />
 
