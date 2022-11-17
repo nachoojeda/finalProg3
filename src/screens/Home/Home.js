@@ -96,7 +96,7 @@ function Home(props) {
     <>
       <View style={styles.container1}>
         <Text>Home</Text>
-       
+        <ActivityIndicator color='lightblue' size={20} />
       </View>
       {/* <View style={styles.container2}>
         <Image
@@ -119,7 +119,7 @@ function Home(props) {
         <TouchableOpacity onPress={() => props.navigation.navigate('Login')}>
           <Text>Ir a login</Text>
         </TouchableOpacity>
-        <ActivityIndicator color='red' size={20} />
+        
       </View>
     </>
   )
