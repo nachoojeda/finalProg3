@@ -21,6 +21,9 @@ export default class extends Component {
             comments:[]
 
         })
+
+        .then(resp => console.log('funciono el posteo'))
+        .catch(err => console.log(err))
     }
     render() {
         return (
