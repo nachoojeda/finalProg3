@@ -21,14 +21,14 @@ class Login extends Component {
         })
     }
 
-loguearUsuario(email,pass){
-    auth.signInWithEmailAndPassword(email, pass)
-    .then( res => {
-        this.props.navigation.navigate("TabNavigation")
+    loguearUsuario(email,pass){
+        auth.signInWithEmailAndPassword(email, pass)
+             .then( res => {
+                 this.props.navigation.navigate("TabNavigation")
     })
-    .catch(error => 
-        this.setState({
-        errors: `El error es: ${error.message}`
+            .catch(error => 
+                 this.setState({
+                    errors: `El error es: ${error.message}`
     })
     )}
                     
@@ -45,31 +45,32 @@ loguearUsuario(email,pass){
             />
 
 
-                <Text style={styles.titulo}>Logueate</Text>
+            <Text style={styles.titulo}>Logueate</Text>
                 
                 
-                <View style={styles.formulario}>
-                <Text style={styles.error}>{this.state.errors}</Text>
+            <View style={styles.formulario}>
+            <Text style={styles.error}>{this.state.errors}</Text>
 
 
-                    <TextInput 
-                        placeholder= 'Email'
-                        keyboardType= 'email-address'
-                        onChangeText={ 
-                            texto => this.setState({
-                                email : texto
-                            })
+            <TextInput 
+                placeholder= 'Email'
+                keyboardType= 'email-address'
+                onChangeText={ 
+                texto => this.setState({
+                email : texto
+                })
                         }
-                        value = {this.state.email}
-                        style={styles.texto}
+                value = {this.state.email}
+                style={styles.texto}
                     />
-                    <TextInput 
-                        placeholder= 'password'
-                        keyboardType= 'default'
-                        secureTextEntry = {true}
-                        onChangeText={ texto => this.setState({password : texto})}
-                        value = {this.state.password}
-                        style={styles.texto}
+
+            <TextInput 
+                placeholder= 'password'
+                keyboardType= 'default'
+                secureTextEntry = {true}
+                onChangeText={ texto => this.setState({password : texto})}
+                value = {this.state.password}
+                style={styles.texto}
                     />
 
             
@@ -122,31 +123,31 @@ const styles = StyleSheet.create({
 
     error:{
         fontFamily: 'monospace',
-    fontSize: 8,
-    margin: 5,
-    color: 'rgb(128, 128, 128)'
+        fontSize: 8,
+        margin: 5,
+        color: 'rgb(128, 128, 128)'
     },
 
     texto:{
-    backgroundColor: 'rgb(0,0,0)',
-    fontFamily: 'monospace',
-    fontSize: 13,
-    margin: 14,
-    borderRadius: 12,
-    textAlign: 'center',
-    color: 'rgb(128, 128, 128)',
-    padding: 8
+        backgroundColor: 'rgb(0,0,0)',
+        fontFamily: 'monospace',
+        fontSize: 13,
+        margin: 14,
+        borderRadius: 12,
+        textAlign: 'center',
+        color: 'rgb(128, 128, 128)',
+        padding: 8
 
     },
 
     botonerror:{
-    fontFamily: 'monospace',
-    fontSize: 16,
-    margin: 15,
-    backgroundColor: 'rgb(105,105,105)',
-    borderRadius: 20,
-    textAlign: 'center',
-    padding: 5
+        fontFamily: 'monospace',
+        fontSize: 16,
+        margin: 15,
+        backgroundColor: 'rgb(105,105,105)',
+        borderRadius: 20,
+        textAlign: 'center',
+        padding: 5
 
     },
 
