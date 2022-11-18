@@ -6,7 +6,9 @@ class Profile extends Component {
   constructor(props){
     super(props)
     this.state ={
-      allComments: []
+      allComments: [],
+      infoUser: [],
+      id : auth.currentUser
     }
   }
 
@@ -24,8 +26,24 @@ class Profile extends Component {
         allComments: comments
       }, () => console.log(this.state.allComments))
     })
-  }
+  
+  
+  db.collection('users').onSnapshot(docs => {
+    let users = []
+    docs.forEach(doc => {
+      users.push({
+        id: doc.id,
+        data: doc.data()
+      })
+    })
 
+    this.setState({
+      infoUser: users,
+    },
+    () => console.log(this.state.infoUser)
+    )
+  })
+  }
 
 
   signOut(){
@@ -37,7 +55,13 @@ class Profile extends Component {
     return (
       <View>
         <Text>Perfil</Text>
-        <text> ¡Hola! Mi nombre es {db.use}</text>
+        <Text> 
+          ¡Hola! {this.state.infoUser[4]?.data?.nombreDeUsuario}
+          Tu mail {this.state.infoUser[4]?.data?.descripcion}
+        
+        
+        </Text>
+        
         <TouchableOpacity 
           onPress={() => this.signOut()}
           style={styles.button}  
@@ -45,8 +69,10 @@ class Profile extends Component {
           <Text>Cerrar sesión</Text>
         </TouchableOpacity>
       </View>
+      
     )
   }
+  
 }
 
 const styles = StyleSheet.create({
