@@ -155,31 +155,31 @@ registrarUsuario(email,pass, userName, bio, foto){
 
         error:{
             fontFamily: 'monospace',
-        fontSize: 8,
-        margin: 5,
-        color: 'rgb(128, 128, 128)'
+            fontSize: 8,
+            margin: 5,
+            color: 'rgb(128, 128, 128)'
         },
 
         texto:{
-        backgroundColor: 'rgb(0,0,0)',
-        fontFamily: 'monospace',
-        fontSize: 13,
-        margin: 14,
-        borderRadius: 12,
-        textAlign: 'center',
-        color: 'rgb(128, 128, 128)',
-        padding: 8
+            backgroundColor: 'rgb(0,0,0)',
+            fontFamily: 'monospace',
+            fontSize: 13,
+            margin: 14,
+            borderRadius: 12,
+            textAlign: 'center',
+            color: 'rgb(128, 128, 128)',
+            padding: 8
 
         },
 
         botonerror:{
-        fontFamily: 'monospace',
-        fontSize: 16,
-        margin: 15,
-        backgroundColor: 'rgb(105,105,105)',
-        borderRadius: 20,
-        textAlign: 'center',
-        padding: 5
+            fontFamily: 'monospace',
+            fontSize: 16,
+            margin: 15,
+            backgroundColor: 'rgb(105,105,105)',
+            borderRadius: 20,
+            textAlign: 'center',
+            padding: 5
 
         },
 
