@@ -47,13 +47,11 @@ class Home extends Component {
           <FlatList
             data={this.state.allPosts}
             keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => <Posteo data={item.data}/>}
+            renderItem={({item}) => <Posteo navigation={this.props.navigation} id={item.id} data={item.data}/>}
           /> 
-        {/* <Posteo data={item.data}/> */}
-        {/* <Text>{item.data.description}</Text> */}
-          <TouchableOpacity onPress={() => props.navigation.navigate('Login')}>
-            <Text>Ir a login</Text>
-          </TouchableOpacity>
+       
+
+         
           
         </View>
       </>
