@@ -3,6 +3,7 @@ import { Text, View, TextInput, TouchableOpacity, StyleSheet,FlatList} from 'rea
   import {db, auth} from '../../firebase/config'
   import firebase from 'firebase'
   
+  
   class Comment extends Component {
     constructor(props){
       super(props)
@@ -65,6 +66,8 @@ import { Text, View, TextInput, TouchableOpacity, StyleSheet,FlatList} from 'rea
               <Text>Enviar comentario</Text>
             </TouchableOpacity>
           </View>
+
+          <Text onPress={ () => this.props.navigation.navigate ("TabNavigation")} style={styles.link}>Volver al inicio</Text>
         </View>
       )
     }
