@@ -62,7 +62,9 @@ class Posteo extends Component {
   render() {
     return (
       <View>
-
+        <Text>
+          Posteo de : {this.props.data.owner}
+        </Text>
         <Text>{this.props.data.description}</Text>
       
        <View>
@@ -79,14 +81,14 @@ class Posteo extends Component {
         }
        </View>
 
-       {/* <View>
+       <View>
           <TouchableOpacity onPress={() => this.props.navigation.navigate(
-            'Comments',
+            'Comment',
             {id:this.props.id}
             )}>
             <Text>Agregar comentario</Text>
           </TouchableOpacity>
-        </View> */}
+        </View>
         
       </View>
 

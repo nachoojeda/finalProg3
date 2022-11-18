@@ -5,6 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import Register from '../screens/Register/Register';
 import Login from '../screens/Login/login';
  import TabNavigation from './TabNavigation';
+ import Comment from '../screens/Comment/Comment';
 
 
 const Stack = createNativeStackNavigator();
@@ -17,7 +18,8 @@ function Navigation() {
         <Stack.Screen name='Register' component={Register} options= {{ headerShown : false}}/>
         <Stack.Screen name='Login' component={Login} options= {{ headerShown : false}}/>
         <Stack.Screen name='TabNavigation' component={TabNavigation} options= {{ headerShown : false}}/>
-      </Stack.Navigator>
+        <Stack.Screen name='Comment' component={Comment} options= {{ headerShown : false}}/>
+      </Stack.Navigator> 
     </NavigationContainer>
   ); 
 };
