@@ -49,7 +49,7 @@ import Camara from '../../components/Camara/Camara'
 
 const styles = StyleSheet.create({
     container:{
-        flex:1
+    flex: 1
     }, 
     input:{
         borderWidth:1,

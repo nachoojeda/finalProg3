@@ -1,12 +1,12 @@
 import { Text, View, StyleSheet} from 'react-native'
 import React, { Component } from 'react'
-import {Camera} from 'expo-camera'
+import {AutoFocus, Camera} from 'expo-camera'
 
  class Camara extends Component {
 
     constructor(){
         super()
-        this.metodosCamara
+        this.metodosCamara = null
         this.state = {
           showCamara: false
         }
@@ -23,7 +23,7 @@ import {Camera} from 'expo-camera'
   render() {
     return (
       <View style={styles.container}>
-        <Camera style={styles.camarabody}
+        <Camera style={styles.camaraBody}
                 type={Camera.Constants.Type.back}
                 ref={metodos => this.metodosCamara = metodos}/>
         <Text>Camera</Text>
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
   container:{
       flex:1
   },
-  camarabody:{
-      height:500
+  camaraBody:{
+      height: 500
   }
 })
 export default Camara
