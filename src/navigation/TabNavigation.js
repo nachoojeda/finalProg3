@@ -5,17 +5,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {FontAwesome} from '@expo/vector-icons'
 import Profile from '../screens/Profile/Profile';
 import Post from '../screens/Post/Post'
-
+import HomeNavigation from './HomeNavigation';
 const Tab  = createBottomTabNavigator();
 
 export default function TabNav() {
   return (
     <Tab.Navigator>
       <Tab.Screen 
-        name='Home' 
-        component={Home}
+        name='HomeNavigation' 
+        component={HomeNavigation}
         options = {{
-          tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue' />
+          tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue'/>,
+          headerShown: false
           }}
       />
     <Tab.Screen

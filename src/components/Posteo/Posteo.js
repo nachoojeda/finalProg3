@@ -62,6 +62,17 @@ class Posteo extends Component {
   render() {
     return (
       <View>
+        <TouchableOpacity onPress={()=> this.props.navigation.navigate(
+        'HomeNavigation',
+        {
+          screen: 'FriendProfile',
+          params:{
+            email:this.props.data.owner
+          }
+        }
+      )}>
+        <Text>{this.props.data.owner}</Text>
+      </TouchableOpacity>
         <Text>
           Posteo de : {this.props.data.owner}
         </Text>

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet,FlatList, Image } from 'react-native'
 import React, {Component} from 'react'
 import { auth, db } from '../../firebase/config'
 
@@ -8,12 +8,12 @@ class Profile extends Component {
     this.state ={
       allComments: [],
       infoUser: [],
-      id : auth.currentUser
+      
     }
   }
 
   componentDidMount(){
-    db.collection('post').onSnapshot(docs => {
+    db.collection('post').where('owner', '==', auth.currentUser.email).onSnapshot(docs => {
       let comments = []
       docs.forEach(doc => {
         comments.push({
@@ -28,7 +28,7 @@ class Profile extends Component {
     })
   
   
-  db.collection('users').onSnapshot(docs => {
+  db.collection('users').where('owner', '==', auth.currentUser.email).onSnapshot(docs => {
     let users = []
     docs.forEach(doc => {
       users.push({
@@ -45,6 +45,23 @@ class Profile extends Component {
   })
   }
 
+  componentWillUnmount(){
+    db.collection('users').onSnapshot(
+      docs=>{
+          let usuario = [];
+          docs.forEach( doc =>{
+              usuario.push({
+                  id: doc.id,
+                  data: doc.data()
+              })
+              this.setState({
+                  
+              })
+          
+          })
+      })
+  }
+
 
   signOut(){
     auth.signOut()
@@ -56,8 +73,8 @@ class Profile extends Component {
       <View>
         <Text>Perfil</Text>
         <Text> 
-          ¡Hola! {this.state.infoUser[4]?.data?.nombreDeUsuario}
-          Tu mail {this.state.infoUser[4]?.data?.descripcion}
+          ¡Hola! {this.state.infoUser[0]?.data?.nombreDeUsuario}
+          Tu descripcion es {this.state.infoUser[0]?.data?.descripcion}
         
         
         </Text>
