@@ -102,7 +102,7 @@ return (
             <ul><Text> Tu perfil se creo: {auth.currentUser.metadata.creationTime} </Text> </ul>
            </li>
     <TouchableOpacity onPress={()=> this.signOut()}>
-        <text> Cerrar tu sesión</text>
+        <Text> Cerrar tu sesión</Text>
       </TouchableOpacity>
 
       {/* <TouchableOpacity onPress={ () => this.eliminar()}>
