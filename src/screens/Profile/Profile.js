@@ -1,7 +1,7 @@
-import  {View, Text, TouchableOpacity, StyleSheet, FlatList} from 'react-native'; 
-import React, {Component} from 'react'
+import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import React, { Component } from 'react'
 import { auth, db } from '../../firebase/config'
-
+import Post from '../Post/Post';
 
 //Nombre de usuario. 
 // Email del usuario.
@@ -17,101 +17,106 @@ import { auth, db } from '../../firebase/config'
 
 class Profile extends Component {
 
-    //falta pasar las props de navegacion para que cuando haga sign out mande al usuario a la pagina login
+  //falta pasar las props de navegacion para que cuando haga sign out mande al usuario a la pagina login
 
-    constructor(props){
-        super(props)
-        this.state ={
-            allComments: [],
-            infoUser: {},
-            id: ''
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      allPosts: [],
+      infoUser: {},
+      id: ''
     }
-    componentDidMount(){
+  }
+  componentDidMount() {
 
-        db.collection('post').where('owner', '==', auth.currentUser.email).onSnapshot(docs => {
-            let posts = []
-            docs.forEach(doc => {
-              posts.push({
-                id: doc.id,
-                data: doc.data()
-              })
-            })
-            this.setState({
-              allComments: posts
-            },
-            () => console.log(this.state.allComments)
-            )
-            
-          })
-    
-          db.collection('users')
-          .where('creador', '==', auth.currentUser.email)
-          .onSnapshot(doc => {
-            doc.forEach(doc => 
-            this.setState({
-              id: doc.id,
-              infoUser: doc.data()
-            })) 
-            
-          })
-     
-        
-      }
+    db.collection('post').where('owner', '==', auth.currentUser.email).onSnapshot(docs => {
+      let posts = []
+      docs.forEach(doc => {
+        posts.push({
+          id: doc.id,
+          data: doc.data()
+        })
+      })
+      this.setState({
+        allPosts: posts
+      },
+        () => console.log(this.state.allPosts)
+      )
 
-    //   componentWillUnmount(){
-    //     db.collection('users').onSnapshot(
-    //         docs=>{
-    //             let usuario = [];
-    //             docs.forEach( doc =>{
-    //                 usuario.push({
-    //                     id: doc.id,
-    //                     data: doc.data()
-    //                 })
-    //                 this.setState({
-                        
-    //                 })
-    //             })
-    //         }
-    //     )
-    //     }
+    })
 
-    // eliminar(){
-    //     db.collection('users').doc
-    //     .delete(
+    db.collection('users')
+      .where('creador', '==', auth.currentUser.email)
+      .onSnapshot(doc => {
+        doc.forEach(doc =>
+          this.setState({
+            id: doc.id,
+            infoUser: doc.data()
+          }))
 
-    //     ).then(()=> 
-    //     this.props.navigation.navigate('Register'))
-        
-    // }
+      })
 
-    signOut(){
-        auth.signOut()
-        this.props.navigation.navigate('Login')
-    }
-    render(){
-return (
-    <View>
+
+  }
+
+  //   componentWillUnmount(){
+  //     db.collection('users').onSnapshot(
+  //         docs=>{
+  //             let usuario = [];
+  //             docs.forEach( doc =>{
+  //                 usuario.push({
+  //                     id: doc.id,
+  //                     data: doc.data()
+  //                 })
+  //                 this.setState({
+
+  //                 })
+  //             })
+  //         }
+  //     )
+  //     }
+
+  // eliminar(){
+  //     db.collection('users').doc
+  //     .delete(
+
+  //     ).then(()=> 
+  //     this.props.navigation.navigate('Register'))
+
+  // }
+
+  signOut() {
+    auth.signOut()
+    this.props.navigation.navigate('Login')
+  }
+  render() {
+    return (
+      <View>
         <div>
-      <Text>Este es tu perfil!</Text>
-            <li>
-          
-           <ul><Text > Bienvenido a tu perfil {this.state.infoUser.nombreDeUsuario}! </Text></ul>
-           <ul><Text> La biografia del usuario: {this.state.infoUser.descripcion}</Text></ul> 
-           <ul><Text> Tu mail: {auth.currentUser.email} </Text> </ul>
-            <ul><Text> Tu perfil se creo: {auth.currentUser.metadata.creationTime} </Text> </ul>
-           </li>
-    <TouchableOpacity onPress={()=> this.signOut()}>
-        <Text> Cerrar tu sesión</Text>
-      </TouchableOpacity>
+          <Text>Este es tu perfil!</Text>
+          <li>
 
-      {/* <TouchableOpacity onPress={ () => this.eliminar()}>
+            <ul><Text > Bienvenido a tu perfil {this.state.infoUser.nombreDeUsuario}! </Text></ul>
+            <ul><Text> La biografia del usuario: {this.state.infoUser.descripcion}</Text></ul>
+            <ul><Text> Tu mail: {auth.currentUser.email} </Text> </ul>
+            <ul><Text> Tu perfil se creo: {auth.currentUser.metadata.creationTime} </Text> </ul>
+          </li>
+          <TouchableOpacity onPress={() => this.signOut()}>
+            <Text> Cerrar tu sesión</Text>
+          </TouchableOpacity>
+
+          {/* <TouchableOpacity onPress={ () => this.eliminar()}>
                 <Text>Eliminar perfil</Text>
             </TouchableOpacity> */}
-            </div>
+        </div>
+        <FlatList
+          data={this.state.allPosts}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item }) => <Post data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
+        />
 
-    </View>
-  )
-}
+      </View>
+    )
+  }
 }
 export default Profile
