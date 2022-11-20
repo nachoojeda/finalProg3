@@ -9,6 +9,7 @@ class Profile extends Component {
       allComments: [],
       infoUser: [],
       
+      
     }
   }
 
@@ -24,28 +25,25 @@ class Profile extends Component {
 
       this.setState({
         allComments: comments
-      }, () => console.log(this.state.allComments))
+      })
     })
   
   
-  db.collection('users').where('owner', '==', auth.currentUser.email).onSnapshot(docs => {
+  db.collection('users').where('owner', '==', '${auth.currentUser.email}').onSnapshot(docs => {
     let users = []
     docs.forEach(doc => {
       users.push({
         id: doc.id,
         data: doc.data()
+      }) 
+      this.setState({
+        infoUser: users
       })
     })
-
-    this.setState({
-      infoUser: users,
-    },
-    () => console.log(this.state.infoUser)
-    )
   })
   }
 
-  componentWillUnmount(){
+   /*componentWillUnmount(){
     db.collection('users').onSnapshot(
       docs=>{
           let usuario = [];
@@ -60,7 +58,8 @@ class Profile extends Component {
           
           })
       })
-  }
+  } */
+  
 
 
   signOut(){
@@ -73,9 +72,8 @@ class Profile extends Component {
       <View>
         <Text>Perfil</Text>
         <Text> 
-          ¡Hola! {this.state.infoUser[0]?.data?.nombreDeUsuario}
-          Tu descripcion es {this.state.infoUser[0]?.data?.descripcion}
-        
+          ¡Hola! {this.state.infoUser[0]?.data.nombreDeUsuario}
+          
         
         </Text>
         
