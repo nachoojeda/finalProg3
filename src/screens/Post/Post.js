@@ -29,7 +29,7 @@ import Camara from '../../components/Camara/Camara'
     render() {
         return (
             <View styles = {styles.container}>
-                <Camara/>
+                {/* <Camara/> */}
                 <TextInput
                 keyboardType='default'
                 onChangeText={text => this.setState({description: text})}

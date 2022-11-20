@@ -97,7 +97,7 @@ return (
             <li>
           
            <ul><Text > Bienvenido a tu perfil {this.state.infoUser.nombreDeUsuario}! </Text></ul>
-           <ul><Text> La biografia del usuario</Text></ul> 
+           <ul><Text> La biografia del usuario: {this.state.infoUser.descripcion}</Text></ul> 
            <ul><Text> Tu mail: {auth.currentUser.email} </Text> </ul>
             <ul><Text> Tu perfil se creo: {auth.currentUser.metadata.creationTime} </Text> </ul>
            </li>
