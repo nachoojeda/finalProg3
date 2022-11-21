@@ -43,7 +43,7 @@ export default class ProfileFriends extends Component {
     }
     render() {
         return (
-            <View>
+            <>
                 <Text >{this.state.infoUser.nombreDeUsuario}'s Profile</Text>
 
 
@@ -54,13 +54,33 @@ export default class ProfileFriends extends Component {
                 <Image 
                     source={{ uri: this.state.infoUser.imagen }}
                     resizeMode='contain' />
+                    <View style={styles.container3}>
 
-                <FlatList
+                    <FlatList
                     data={this.state.postsFriend}
                     keyExtractor={item => item.id.toString()}
                     renderItem={({ item }) => <Posteo data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
-                />
-            </View>
+                /> 
+                    </View>
+                
+                    </>
         )
     }
 }
+
+const styles = StyleSheet.create({
+    container1:{
+      flex:1,
+      justifyContent:'center',
+      alignItems:'center'
+    },
+    container2:{
+      flex:3
+    },
+    container3:{
+      flex:5
+    },
+    image:{
+      height:300
+    }
+  })

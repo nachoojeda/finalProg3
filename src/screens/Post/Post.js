@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1
     }, 
     camaraBody:{
-        width: 50
+        height: 500
     }, 
     input:{
         borderWidth:1,

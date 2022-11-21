@@ -43,7 +43,7 @@ class Home extends Component {
     return (
       <>
         <View style={styles.container1}>
-          <Text>Home</Text>
+          
           {/* <ActivityIndicator color='lightblue' size={20} /> */}
         </View>
         <View style={styles.container3}>
@@ -53,9 +53,6 @@ class Home extends Component {
             renderItem={({item}) => <Posteo navigation={this.props.navigation} id={item.id} data={item.data}/>}
           /> 
        
-
-         
-          
         </View>
       </>
     )

@@ -91,7 +91,7 @@ class Profile extends Component {
   }
   render() {
     return (
-      <View>
+      <>
         <div>
           <Text>Este es tu perfil!</Text>
           <li>
@@ -101,22 +101,41 @@ class Profile extends Component {
             <ul><Text> Tu mail: {auth.currentUser.email} </Text> </ul>
             <ul><Text> Tu perfil se creo: {auth.currentUser.metadata.creationTime} </Text> </ul>
           </li>
-          <TouchableOpacity onPress={() => this.signOut()}>
-            <Text> Cerrar tu sesión</Text>
-          </TouchableOpacity>
+          
 
           {/* <TouchableOpacity onPress={ () => this.eliminar()}>
                 <Text>Eliminar perfil</Text>
             </TouchableOpacity> */}
         </div>
-        <FlatList
+        <View style={styles.container3}> <FlatList
           data={this.state.allPosts}
           keyExtractor={item => item.id.toString()}
-          renderItem={({ item }) => <Posteo data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
-        />
+          renderItem={({ item }) => <Posteo navigation={this.props.navigation} data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
+        />  </View>
+        
 
-      </View>
+        <TouchableOpacity onPress={() => this.signOut()}>
+            <Text> Cerrar tu sesión</Text>
+          </TouchableOpacity>
+          </>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container1:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  container2:{
+    flex:3
+  },
+  container3:{
+    flex:5
+  },
+  image:{
+    height:300
+  }
+})
 export default Profile
