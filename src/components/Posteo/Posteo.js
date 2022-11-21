@@ -1,4 +1,4 @@
-import { Text, View , TouchableOpacity} from 'react-native'
+import { Text, View , TouchableOpacity, Image, StyleSheet} from 'react-native'
 import React, { Component } from 'react'
 import {FontAwesome} from '@expo/vector-icons'
 import {db, auth} from '../../firebase/config'
@@ -71,11 +71,12 @@ class Posteo extends Component {
           }
         }
       )}>
-        <Text>{this.props.data.owner}</Text>
+        <Text> Posteo de : {this.props.data.owner}</Text>
       </TouchableOpacity>
-        <Text>
-          Posteo de : {this.props.data.owner}
-        </Text>
+        <Image style={styles.image} 
+                         source={{uri:this.props.data.foto}}
+                         resizeMode='contain'/>
+
         <Text>{this.props.data.description}</Text>
       
        <View>
@@ -106,6 +107,16 @@ class Posteo extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  image: {
+   height: 400,
+   width: 400, 
+   alignItems: 'center',
+
+ }
+
+})
 
 export default Posteo
 
