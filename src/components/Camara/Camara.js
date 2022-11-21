@@ -98,10 +98,13 @@ const styles = StyleSheet.create({
         flex:1
     },
     camarabody:{
-        height:500
+        height:50,
+        width:300
     },
     image:{
-        height:500
+        height:100,
+        width: 300
+
     }
 })
 
