@@ -6,6 +6,7 @@ import {FontAwesome} from '@expo/vector-icons'
 import Profile from '../screens/Profile/Profile';
 import Post from '../screens/Post/Post'
 import HomeNavigation from './HomeNavigation';
+import Buscador from '../screens/Buscador/Buscador';
 const Tab  = createBottomTabNavigator();
 
 export default function TabNav() {
@@ -16,6 +17,13 @@ export default function TabNav() {
         component={HomeNavigation}
         options = {{
           tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue'/>,
+          headerShown: false
+          }}
+      />
+      <Tab.Screen
+        name= 'Search'
+        component={Buscador}
+        options = {{ tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue'/>,
           headerShown: false
           }}
       />
