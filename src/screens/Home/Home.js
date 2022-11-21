@@ -23,7 +23,7 @@ class Home extends Component {
   componentDidMount(){
     db.collection('post')
     .orderBy('createdAt' , 'desc')
-    .limit(3) 
+    .limit(20) 
     .onSnapshot(docs => {
       let publicaciones = []
 
