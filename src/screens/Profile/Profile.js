@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, Image } from 'react-native';
 import React, { Component } from 'react'
 import { auth, db } from '../../firebase/config'
 import Posteo from '../../components/Posteo/Posteo';

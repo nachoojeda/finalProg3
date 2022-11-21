@@ -2,6 +2,7 @@ import { Text, View, TouchableOpacity, StyleSheet, FlatList, Image } from 'react
 import React, { Component } from 'react'
 import { db } from '../../firebase/config'
 import Post from '../Post/Post'
+import Posteo from '../../components/Posteo/Posteo'
 
 
 export default class ProfileFriends extends Component {
@@ -57,7 +58,7 @@ export default class ProfileFriends extends Component {
                 <FlatList
                     data={this.state.postsFriend}
                     keyExtractor={item => item.id.toString()}
-                    renderItem={({ item }) => <Post data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
+                    renderItem={({ item }) => <Posteo data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
                 />
             </View>
         )
