@@ -13,31 +13,31 @@ export default function TabNav() {
   return (
     <Tab.Navigator>
       <Tab.Screen 
-        name='HomeNavigation' 
+        name='Home' 
         component={HomeNavigation}
-        options = {{
-          tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue'/>,
-          headerShown: false
+        options = {{ headerShown: false ,
+          tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue'/>
           }}
       />
       <Tab.Screen
         name= 'Search'
         component={Buscador}
-        options = {{ tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue'/>,
-          headerShown: false
+        options = {{  headerShown: false ,
+          tabBarIcon: () => <FontAwesome name='search' size={24} color='lightblue'/>
+          
           }}
       />
     <Tab.Screen
       name='Post'
       component={Post}
-      options = {{
+      options = {{  headerShown: false ,
         tabBarIcon: () => <FontAwesome name='plus' size={24} color='lightblue' />
         }}
        />
        <Tab.Screen
       name='Profile'
       component={Profile}
-      options = {{
+      options = {{  headerShown: false ,
         tabBarIcon: () => <FontAwesome name='user' size={24} color='lightblue' />
         }}
        />
