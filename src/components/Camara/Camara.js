@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import {Camera} from 'expo-camera'
 import { TouchableOpacity } from 'react-native-web'
 import {storage} from '../../firebase/config'
+import {FontAwesome} from '@expo/vector-icons'
 
 
 
@@ -52,7 +53,10 @@ class Camara extends Component {
     }
 
     rechazarImagen(){
-
+        this.setState({
+            mostrarCamara: true,
+            fotoUri: '',
+        }) 
     }
 
   render() {
@@ -67,7 +71,7 @@ class Camara extends Component {
                 ref={metodos => this.metodosCamara = metodos}
                 />
                 <TouchableOpacity style={styles.texto} onPress={ () => this.tomarFoto()}>
-                <Text style={styles.boton}>Shoot</Text>
+                <FontAwesome style={styles.boton} name='camera' color='white' size={14} />
                 </TouchableOpacity>
             </>
             : this.state.mostrarCamara === false && this.state.fotoUri != '' ?

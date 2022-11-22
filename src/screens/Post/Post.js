@@ -25,6 +25,12 @@ import Camara from '../../components/Camara/Camara'
             foto: this.state.fotoUrl
 
         })
+        .then(()=> (this.setState({
+            description: '', 
+            mostrarCamara: true, 
+            fotoUri: '',}))) 
+            
+        .catch(err => console.log(err))
 
         .then(resp => console.log('funciono el posteo'))
         .catch(err => console.log(err))

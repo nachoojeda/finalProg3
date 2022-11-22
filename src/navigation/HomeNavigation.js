@@ -11,7 +11,7 @@ export default class HomeNavigation extends Component {
     return (
       <Stack.Navigator>
         <Stack.Screen
-            name='Home'
+            name='home'
             component={Home}
 
             options= {{ headerShown : false}}
