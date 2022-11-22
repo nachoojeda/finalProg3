@@ -72,7 +72,10 @@ import Camara from '../../components/Camara/Camara'
 
 const styles = StyleSheet.create({
     container:{
-    flex: 1
+    flex: 1 ,
+    backgroundColor: 'rgb(255,255,242)',
+        alignItems: 'center',
+        justifyContent: 'center'
     }, 
     camaraBody:{
         height: 100

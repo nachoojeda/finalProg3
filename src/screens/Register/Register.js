@@ -133,7 +133,7 @@ registrarUsuario(email,pass, userName, bio, foto){
 
         contenedor:{
             flex:1,
-            backgroundColor: 'rgb(0,0,0)',
+            backgroundColor: 'rgb(255,255,242)',
             alignItems: 'center',
             justifyContent: 'center'
         },
@@ -147,7 +147,7 @@ registrarUsuario(email,pass, userName, bio, foto){
         },
 
         formulario:{
-            backgroundColor: 'rgb(128, 128, 128)',
+            backgroundColor: 'rgb(255,250,250)',
             borderRadius: 8,
             padding: 20
 
@@ -161,7 +161,7 @@ registrarUsuario(email,pass, userName, bio, foto){
         },
 
         texto:{
-            backgroundColor: 'rgb(0,0,0)',
+            backgroundColor: 'rgb(255,255,242)',
             fontFamily: 'monospace',
             fontSize: 13,
             margin: 14,
@@ -176,7 +176,7 @@ registrarUsuario(email,pass, userName, bio, foto){
             fontFamily: 'monospace',
             fontSize: 16,
             margin: 15,
-            backgroundColor: 'rgb(105,105,105)',
+            backgroundColor: 'rgb(173, 216, 230)',
             borderRadius: 20,
             textAlign: 'center',
             padding: 5
@@ -187,7 +187,7 @@ registrarUsuario(email,pass, userName, bio, foto){
             fontFamily: 'monospace',
             fontSize: 16,
             margin: 15,
-            backgroundColor: 'rgb(105,105,105)',
+            backgroundColor: 'rgb(173, 216, 230)',
             borderRadius: 20,
             textAlign: 'center',
             padding: 5 
@@ -202,7 +202,7 @@ registrarUsuario(email,pass, userName, bio, foto){
 
         foto:{
             height: 170,
-            width: 140
+            width: 140 
 
         }
 

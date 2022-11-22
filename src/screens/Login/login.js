@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
 
     contenedor:{
         flex:1,
-        backgroundColor: 'rgb(0,0,0)',
+        backgroundColor: 'rgb(255,255,242)',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     },
 
     formulario:{
-        backgroundColor: 'rgb(128, 128, 128)',
+        backgroundColor: 'rgb(255,250,250)',
         borderRadius: 8,
         padding: 20
 
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     },
 
     texto:{
-        backgroundColor: 'rgb(0,0,0)',
+        backgroundColor: 'rgb(255,255,242)',
         fontFamily: 'monospace',
         fontSize: 13,
         margin: 14,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
         fontFamily: 'monospace',
         fontSize: 16,
         margin: 15,
-        backgroundColor: 'rgb(105,105,105)',
+        backgroundColor: 'rgb(173, 216, 230)',
         borderRadius: 20,
         textAlign: 'center',
         padding: 5
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         fontFamily: 'monospace',
         fontSize: 16,
         margin: 15,
-        backgroundColor: 'rgb(105,105,105)',
+        backgroundColor: 'rgb(173, 216, 230)',
         borderRadius: 20,
         textAlign: 'center',
         padding: 5  

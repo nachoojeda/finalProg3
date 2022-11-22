@@ -64,13 +64,14 @@ const styles = StyleSheet.create({
   container1:{
     flex:1,
     justifyContent:'center',
-    alignItems:'center'
+    alignItems:'center',
+    backgroundColor: 'rgb(255,255,242)'
   },
   container2:{
     flex:3
   },
   container3:{
-    flex:5
+    flex:6
   },
   image:{
     height:300

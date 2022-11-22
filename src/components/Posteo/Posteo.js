@@ -61,7 +61,7 @@ class Posteo extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.contenedor}>
         <TouchableOpacity onPress={()=> this.props.navigation.navigate(
         'HomeNavigation',
         {
@@ -71,13 +71,13 @@ class Posteo extends Component {
           }
         }
       )}>
-        <Text> Posteo de : {this.props.data.owner}</Text>
+        <Text style={styles.texto}> Posteo de : {this.props.data.owner}</Text>
       </TouchableOpacity>
         <Image style={styles.image} 
                          source={{uri:this.props.data.foto}}
                          resizeMode='contain'/>
 
-        <Text>{this.props.data.description}</Text>
+        <Text style={styles.texto}>"{this.props.data.description}"</Text>
       
        <View>
        {/* <Text>{this.state.likeCount}</Text>  */}
@@ -98,7 +98,7 @@ class Posteo extends Component {
             'Comment',
             {id:this.props.id}
             )}>
-            <Text>Agregar comentario</Text>
+            <Text style={styles.boton}> Agregar comentario</Text>
           </TouchableOpacity>
         </View>
         
@@ -114,8 +114,37 @@ const styles = StyleSheet.create({
    width: 400, 
    alignItems: 'center',
 
- }
+ } 
 
+ ,
+
+ contenedor:{
+  flex:3,
+  backgroundColor: 'rgb(255,255,242)',
+  alignItems: 'center',
+  justifyContent: 'center',
+  margin: 30
+}
+,
+texto:{
+  backgroundColor: 'rgb(255,255,242)',
+  fontFamily: 'monospace',
+  fontSize: 20,
+  textAlign: 'center',
+  color: 'rgb(128, 128, 128)',
+  
+
+}, 
+boton:{
+  fontFamily: 'monospace',
+  fontSize: 16,
+  margin: 10,
+  backgroundColor: 'rgb(173, 216, 230)',
+  borderRadius: 20,
+  textAlign: 'center',
+  padding: 5
+
+},
 })
 
 export default Posteo
