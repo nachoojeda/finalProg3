@@ -13,7 +13,7 @@ export default function TabNav() {
   return (
     <Tab.Navigator>
       <Tab.Screen 
-        name='Home' 
+        name='HomeNavigation' 
         component={HomeNavigation}
         options = {{ headerShown: false ,
           tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue'/>

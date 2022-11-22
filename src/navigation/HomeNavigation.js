@@ -11,16 +11,16 @@ export default class HomeNavigation extends Component {
     return (
       <Stack.Navigator>
         <Stack.Screen
-            name='home'
-            component={Home}
+          name='Home'
+          component={Home}
 
-            options= {{ headerShown : false}}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
-            name='FriendProfile'
-            component={FriendProfile}
+          name='FriendProfile'
+          component={FriendProfile}
 
-            options= {{ headerShown : false}}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     )
