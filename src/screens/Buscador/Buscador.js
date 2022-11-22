@@ -8,6 +8,7 @@ class Buscador extends Component {
         this.state =
         {
             infoUser: [],
+            allUsers: []
         };
     }
     componentDidMount() {
@@ -21,17 +22,24 @@ class Buscador extends Component {
             })
             this.setState({
                 infoUser: users,
+                allUsers: users
             },
                 () => console.log(this.state.infoUser)
             )
         })
     }
-    evitarSubmit(event) {
-        event.preventDefault();
+    // evitarSubmit(event) {
+    //     event.preventDefault();
+    // }
+   
+    buscador(usuarioBuscado){
+       let  resultadoBusqueda = this.state.allUsers.filter((item)=>{
+       return (item.data.creador.includes(usuarioBuscado) ? item.data.creador.includes(usuarioBuscado) : item.data.nombreDeUsuario.includes(usuarioBuscado))
+       })
+       this.setState({infoUser: resultadoBusqueda, busqueda: usuarioBuscado})
+       
     }
-    controlarCambios(event) {
-        this.setState({ valor: event.target.value }, () => this.props.metodoQueBusca(this.state.valor));
-    }
+
     render() {
         return (
             <View>
@@ -39,17 +47,18 @@ class Buscador extends Component {
                     style={styles.input}
                     keyboardType='default'
                     placeholder='Busca aca!'
-                    onChangeText={text => this.setState({ busqueda: text })}
+                    onChangeText={(text) => this.buscador(text)}
                     value={this.state.busqueda}
                 />
-                <TouchableOpacity onSubmit={(event) => this.evitarSubmit(event)} style={styles.to}>
+               {/* <TouchableOpacity onSubmit={(event) => this.evitarSubmit(event)} style={styles.to}>
                     <Text>Search</Text>
-                </TouchableOpacity>
-                {/* {<FlatList }
+                </TouchableOpacity>  */}
+                 <Text>Perfiles:</Text>
+                 <FlatList
                     data={this.state.infoUser}
                     keyExtractor={item => item.id.toString()}
-                    renderItem={({ item }) => <Text> {item.data.owner} :  {item.data.nombreUsuario} </Text>} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
-                {/* />} */}
+                    renderItem={({ item }) => <Text> {item.data.creador} :  {item.data.nombreDeUsuario} </Text>} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
+                 />
             </View>
             
         );
