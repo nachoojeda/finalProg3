@@ -10,19 +10,18 @@ class Posteo extends Component {
     super(props)
     this.state = {
       likeCount: props.data.likes.lenght,
-      commentCount: props.data.comments.lenght,
       isMyLike: false
     }
   }
 
-  // componentDidMount(){
-  //   let myLike = this.props.data.likes.includes(auth.currentUser.email)
-  //   if(myLike){
-  //     this.setState({
-  //       isMyLike:true
-  //     })
-  //   }
-  // }
+  componentDidMount(){
+    let myLike = this.props.data.likes.includes(auth.currentUser.email)
+    if(myLike){
+      this.setState({
+        isMyLike:true
+      })
+    }
+  }
 
   like(){
     db
@@ -71,7 +70,7 @@ class Posteo extends Component {
           }
         }
       )}>
-        <Text style={styles.texto}> Posteo de : {this.props.data.owner}</Text>
+        <Text style={styles.texto}> Posteo de : {this.props.data.owner} del dia {this.props.data.createdAt}</Text>
       </TouchableOpacity>
         <Image style={styles.image} 
                          source={{uri:this.props.data.foto}}
@@ -92,6 +91,7 @@ class Posteo extends Component {
         </TouchableOpacity>
         }
        </View>
+
 
        <View>
           <TouchableOpacity onPress={() => this.props.navigation.navigate(

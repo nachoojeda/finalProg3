@@ -95,13 +95,13 @@ class Profile extends Component {
     return (
       <>
         <div>
-          <Text>Este es tu perfil!</Text>
+          <Text style={styles.container0}>Este es tu perfil!</Text>
           <li>
 
-            <ul><Text > Bienvenido a tu perfil {this.state.infoUser.nombreDeUsuario}! </Text></ul>
-            <ul><Text> La biografia del usuario: {this.state.infoUser.descripcion}</Text></ul>
-            <ul><Text> Tu mail: {auth.currentUser.email} </Text> </ul>
-            <ul><Text> Tu perfil se creo: {auth.currentUser.metadata.creationTime} </Text> </ul>
+            <ul><Text style={styles.container3} > Bienvenido a tu perfil {this.state.infoUser.nombreDeUsuario}! </Text></ul>
+            <ul><Text style={styles.container3}> La biografia del usuario: {this.state.infoUser.descripcion}</Text></ul>
+            <ul><Text style={styles.container3}> Tu mail: {auth.currentUser.email} </Text> </ul>
+            <ul><Text style={styles.container3}> Tu perfil se creo: {auth.currentUser.metadata.creationTime} </Text> </ul>
           </li>
           
 
@@ -125,6 +125,12 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
+  container0:{
+    fontFamily: 'monospace',
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center'
+  },
   container1:{
     flex:1,
     justifyContent:'center',
@@ -134,6 +140,7 @@ const styles = StyleSheet.create({
     flex:3
   },
   container3:{
+    fontFamily: 'monospace',
     flex:5
   },
   image:{
