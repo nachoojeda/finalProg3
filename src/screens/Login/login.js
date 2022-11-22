@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
 
     contenedor:{
         flex:1,
-        backgroundColor: 'rgb(255,255,242)',
+        backgroundColor: 'rgb(0,0,0)',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     },
 
     formulario:{
-        backgroundColor: 'rgb(255,250,250)',
+        backgroundColor: 'rgb(128, 128, 128)',
         borderRadius: 8,
         padding: 20
 
@@ -125,15 +125,15 @@ const styles = StyleSheet.create({
         fontFamily: 'monospace',
         fontSize: 8,
         margin: 5,
-        color: 'rgb(128, 128, 128)'
+        color: 'rgb(0,0,0)'
     },
 
     texto:{
-        backgroundColor: 'rgb(255,255,242)',
+        backgroundColor: 'rgb(0,0,0)',
         fontFamily: 'monospace',
-        fontSize: 13,
+        fontSize: 11,
         margin: 14,
-        borderRadius: 12,
+        borderRadius: 5,
         textAlign: 'center',
         color: 'rgb(128, 128, 128)',
         padding: 8
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
         fontFamily: 'monospace',
         fontSize: 16,
         margin: 15,
-        backgroundColor: 'rgb(173, 216, 230)',
+        backgroundColor: 'rgb(70,70,70)',
         borderRadius: 20,
         textAlign: 'center',
         padding: 5
@@ -155,24 +155,26 @@ const styles = StyleSheet.create({
         fontFamily: 'monospace',
         fontSize: 16,
         margin: 15,
-        backgroundColor: 'rgb(173, 216, 230)',
+        backgroundColor: 'rgb(70,70,70)',
         borderRadius: 20,
         textAlign: 'center',
-        padding: 5  
+        padding: 5 
     },
 
     link:{
         fontFamily: 'monospace',
         fontSize:12,
-        margin: 3,
+        margin: 3
 
     },
 
     foto:{
         height: 170,
-        width: 140
+        width: 140 
 
     }
+
+    
 
 })
 
