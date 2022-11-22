@@ -29,7 +29,9 @@ class Profile extends Component {
   }
   componentDidMount() {
 
-    db.collection('post').where('owner', '==', auth.currentUser.email).onSnapshot(docs => {
+    db.collection('post').where('owner', '==', auth.currentUser.email)
+    .orderBy('createdAt' , 'desc')
+    .onSnapshot(docs => {
       let posts = []
       docs.forEach(doc => {
         posts.push({
@@ -115,7 +117,7 @@ class Profile extends Component {
         
 
         <TouchableOpacity onPress={() => this.signOut()}>
-            <Text> Cerrar tu sesión</Text>
+            <Text style={styles.boton}> Cerrar tu sesión</Text>
           </TouchableOpacity>
           </>
     )
@@ -136,6 +138,16 @@ const styles = StyleSheet.create({
   },
   image:{
     height:300
-  }
+  },
+  boton:{
+    fontFamily: 'monospace',
+    fontSize: 16,
+    margin: 15,
+    backgroundColor: 'rgb(186, 0, 0)',
+    borderRadius: 20,
+    textAlign: 'center',
+    padding: 5
+
+},
 })
 export default Profile

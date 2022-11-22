@@ -53,11 +53,11 @@ import Camara from '../../components/Camara/Camara'
              keyboardType='default'
              onChangeText={text => this.setState({description: text})}
              value={this.state.description}
-             style={styles.input}
+             style={styles.texto}
              placeholder='Deja la descripcion'
              />
              <TouchableOpacity onPress={() => this.enviar(this.state.description)}>
-                 <Text>
+                 <Text style={styles.boton}>
                      Enviar
                  </Text>
              </TouchableOpacity>
@@ -80,10 +80,27 @@ const styles = StyleSheet.create({
     camaraBody:{
         height: 100
     }, 
-    input:{
-        borderWidth:1,
-        height:48
-    } 
+     texto:{
+        backgroundColor: 'rgb(255,255,242)',
+        fontFamily: 'monospace',
+        fontSize: 13,
+        margin: 14,
+        borderRadius: 12,
+        textAlign: 'center',
+        color: 'rgb(128, 128, 128)',
+        padding: 8
+
+    } ,
+    boton:{
+        fontFamily: 'monospace',
+        fontSize: 16,
+        margin: 15,
+        backgroundColor: 'rgb(173, 216, 230)',
+        borderRadius: 20,
+        textAlign: 'center',
+        padding: 5
+
+    },
 })
 
 export default Post

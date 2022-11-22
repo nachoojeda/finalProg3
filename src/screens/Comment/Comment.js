@@ -42,19 +42,19 @@ import { Text, View, TextInput, TouchableOpacity, StyleSheet,FlatList} from 'rea
     render() {
       return (
         <View>
-          <Text>Comments</Text>
-          <View>
+        
+          <View style={styles.texto}>
             <FlatList
             data={this.state.data.comments}
             keyExtractor={item => item.createdAt.toString()}
             renderItem={({item}) => <View>
-              <Text>{item.owner} comentó:</Text>
-              <Text>{item.comment}</Text>
+              <Text style={styles.textox}>{item.owner} comentó:</Text>
+              <Text style={styles.textox}>{item.comment}</Text>
             </View>
               }
             />
           </View>
-          <View>
+          <View style={styles.boton}>
             <TextInput
               onChangeText={text => this.setState({newComment: text})}
               style = {styles.input}
@@ -63,11 +63,11 @@ import { Text, View, TextInput, TouchableOpacity, StyleSheet,FlatList} from 'rea
               value={this.state.newComment}
             />
             <TouchableOpacity onPress={()=> this.addComment(this.state.id, this.state.newComment)}>
-              <Text>Enviar comentario</Text>
+              <Text style={styles.boton}>Enviar comentario</Text>
             </TouchableOpacity>
           </View>
 
-          <Text onPress={ () => this.props.navigation.navigate ("TabNavigation")} style={styles.link}>Volver al inicio</Text>
+          <Text onPress={ () => this.props.navigation.navigate ("TabNavigation")} style={styles.botonx}>Volver al inicio</Text>
         </View>
       )
     }
@@ -75,9 +75,57 @@ import { Text, View, TextInput, TouchableOpacity, StyleSheet,FlatList} from 'rea
   
   const styles = StyleSheet.create({
     input: {
-      borderWidth:1,
-      height:32
-    }
+      justifyContent: 'center',
+      textAlign: 'center' ,
+      fontFamily: 'monospace',
+    } ,
+
+    texto:{
+      backgroundColor: 'rgb(255,255,242)',
+      fontFamily: 'monospace',
+      fontSize: 13,
+      margin: 14,
+      borderRadius: 12,
+      textAlign: 'center',
+      color: 'rgb(128, 128, 128)',
+      padding: 8
+
+  }, 
+
+  textox:{
+    backgroundColor: 'rgb(255,255,242)',
+    fontFamily: 'monospace',
+    fontSize: 13,
+    margin: 1,
+    borderRadius: 12,
+    textAlign: 'center',
+    color: 'rgb(128, 128, 128)',
+    padding: 8
+
+}, 
+
+  boton:{
+    fontFamily: 'monospace',
+    fontSize: 16,
+    margin: 10,
+    backgroundColor: 'rgb(173, 216, 230)',
+    borderRadius: 20,
+    textAlign: 'center',
+    padding: 5
+  
+  },
+
+  botonx:{
+    fontFamily: 'monospace',
+    fontSize: 16,
+    margin: 10,
+    backgroundColor: 'rgb(173, 216, 230)',
+    borderRadius: 20,
+    textAlign: 'center',
+    justifyContent: 'flex-end' ,
+    padding: 5
+  
+  },
   })
   
   export default Comment
