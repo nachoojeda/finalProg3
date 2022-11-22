@@ -53,11 +53,11 @@ class Buscador extends Component {
                {/* <TouchableOpacity onSubmit={(event) => this.evitarSubmit(event)} style={styles.to}>
                     <Text>Search</Text>
                 </TouchableOpacity>  */}
-                 <Text>Perfiles:</Text>
+                 <Text>Quizas conozcas...</Text>
                  <FlatList
                     data={this.state.infoUser}
                     keyExtractor={item => item.id.toString()}
-                    renderItem={({ item }) => <Text> {item.data.creador} :  {item.data.nombreDeUsuario} </Text>} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
+                    renderItem={({ item }) => <Text> {item.data.creador} ({item.data.nombreDeUsuario})</Text>} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
                  />
             </View>
             
