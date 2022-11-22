@@ -19,6 +19,7 @@ export default class ProfileFriends extends Component {
     componentDidMount() {
         db
             .collection('post')
+            .orderBy('createdAt' , 'desc')
             .where('owner', '==', this.state.mailFriend)
             .onSnapshot(docs => {
                 let posts = []
@@ -44,13 +45,13 @@ export default class ProfileFriends extends Component {
     render() {
         return (
             <>
-                <Text >{this.state.infoUser.nombreDeUsuario}'s Profile</Text>
+                <Text style={styles.container0} >{this.state.infoUser.nombreDeUsuario}'s Profile</Text>
 
 
-                <Text>{this.state.infoUser.nombreDeUsuario}</Text>
-                <Text>{this.props.route.params.email}</Text>
-                <Text>{this.state.infoUser.descripcion}</Text>
-                <Text>{this.state.postsFriend.length}</Text>
+                <Text style={styles.container0}>{this.state.infoUser.nombreDeUsuario}</Text>
+                <Text style={styles.container0}>{this.props.route.params.email}</Text>
+                <Text style={styles.container0}>{this.state.infoUser.descripcion}</Text>
+                <Text style={styles.container0}>{this.state.postsFriend.length}</Text>
                 <Image 
                     source={{ uri: this.state.infoUser.imagen }}
                     resizeMode='contain' />
@@ -69,6 +70,9 @@ export default class ProfileFriends extends Component {
 }
 
 const styles = StyleSheet.create({
+    container0:{
+        fontFamily: 'monospace',
+      },
     container1:{
       flex:1,
       justifyContent:'center',
@@ -78,8 +82,9 @@ const styles = StyleSheet.create({
       flex:3
     },
     container3:{
-      flex:5
-    },
+    
+        flex:5
+      },
     image:{
       height:300
     }

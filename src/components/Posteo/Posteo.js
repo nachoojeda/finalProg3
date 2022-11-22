@@ -10,19 +10,18 @@ class Posteo extends Component {
     super(props)
     this.state = {
       likeCount: props.data.likes.lenght,
-      commentCount: props.data.comments.lenght,
       isMyLike: false
     }
   }
 
-  // componentDidMount(){
-  //   let myLike = this.props.data.likes.includes(auth.currentUser.email)
-  //   if(myLike){
-  //     this.setState({
-  //       isMyLike:true
-  //     })
-  //   }
-  // }
+  componentDidMount(){
+    let myLike = this.props.data.likes.includes(auth.currentUser.email)
+    if(myLike){
+      this.setState({
+        isMyLike:true
+      })
+    }
+  }
 
   like(){
     db
@@ -92,6 +91,7 @@ class Posteo extends Component {
         </TouchableOpacity>
         }
        </View>
+
 
        <View>
           <TouchableOpacity onPress={() => this.props.navigation.navigate(
