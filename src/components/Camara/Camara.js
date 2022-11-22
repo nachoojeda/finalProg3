@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, Image } from 'react-native'
 import React, { Component } from 'react'
 import {Camera} from 'expo-camera'
-import { TouchableOpacity } from 'react-native-web'
+import { ActivityIndicator, TouchableOpacity } from 'react-native-web'
 import {storage} from '../../firebase/config'
 import {FontAwesome} from '@expo/vector-icons'
 
@@ -91,7 +91,7 @@ class Camara extends Component {
                     </Text>
                 </TouchableOpacity>
             </View>
-            : <Text>No me haz dado permisos para mostrar la foto</Text>
+            : <ActivityIndicator size = 'large' color='lightblue'/>
         }
       </View>
     )

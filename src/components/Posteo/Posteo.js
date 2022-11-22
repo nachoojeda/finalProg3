@@ -71,7 +71,7 @@ class Posteo extends Component {
           }
         }
       )}>
-        <Text style={styles.texto}> Posteo de : {this.props.data.owner}</Text>
+        <Text style={styles.texto}> Posteo de : {this.props.data.owner} del dia {this.props.data.createdAt}</Text>
       </TouchableOpacity>
         <Image style={styles.image} 
                          source={{uri:this.props.data.foto}}
