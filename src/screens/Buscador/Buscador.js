@@ -81,13 +81,15 @@ const styles = StyleSheet.create({
     },
    
     input: {
+        fontFamily: 'monospace',
+        fontSize: 20,
         borderWidth: 2,
-        height: 40,
+        height: 50,
         width: '90%',
-        borderRadius: 20,
+        borderRadius: 40,
         borderColor: 'rgb (0,0,0)',
-        padding: 10,
-        margin: 10,
+        padding: 15,
+        margin: 15,
         backgroundColor: 'rgb(128, 128, 128)',
         color: 'rgb(0,0,0)'
     },

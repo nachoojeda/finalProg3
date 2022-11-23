@@ -93,6 +93,7 @@ class Profile extends Component {
   }
   render() {
     return (
+      <View style={styles.contenedor}>
       <>
         <div>
           <Text style={styles.container0}>Este es tu perfil!</Text>
@@ -120,11 +121,17 @@ class Profile extends Component {
           <Text style={styles.boton}> Cerrar tu sesión</Text>
         </TouchableOpacity>
       </>
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  contenedor:{
+    backgroundColor: 'rgb(128, 128, 128)',
+    flex: 1
+},
+  
   container0: {
     fontFamily: 'monospace',
     color: 'rgb(0,0,0)',
@@ -135,7 +142,7 @@ const styles = StyleSheet.create({
   container1: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   container2: {
     flex: 3
