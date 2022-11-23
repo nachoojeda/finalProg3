@@ -10,6 +10,7 @@ class Posteo extends Component {
     super(props)
     this.state = {
       likeCount: this.props.data.likes.length,
+      commentCount: this.props.data.comments.length,
       isMyLike: false
     }
   }
@@ -80,6 +81,7 @@ class Posteo extends Component {
       
        <View>
        <Text style={styles.texto}> Likes: {this.state.likeCount}</Text> 
+       <Text style={styles.texto}> Comentarios: {this.state.commentCount}</Text> 
       {
           this.state.isMyLike ? 
           <TouchableOpacity style={styles.texto}
