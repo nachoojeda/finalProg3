@@ -65,15 +65,15 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor: 'rgb(0,0,0)'
+    backgroundColor: 'rgb(128,128,128)'
   },
   container2:{
     flex:3,
-    backgroundColor: 'rgb(rgb(128, 128, 128)'
+    backgroundColor: 'rgb(128,128,128)'
   },
   container3:{
     flex:6,
-    backgroundColor: 'rgb(rgb(128, 128, 128)'
+    backgroundColor: 'rgb(128,128,128)'
   },
   image:{
     height:300
