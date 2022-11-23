@@ -46,7 +46,7 @@ class Buscador extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.contenedor}>
                 <TextInput
                     style={styles.input}
                     keyboardType='default'
@@ -75,14 +75,21 @@ class Buscador extends Component {
     }
 }
 const styles = StyleSheet.create({
+    contenedor:{
+        backgroundColor: 'rgb(128, 128, 128)',
+        flex: 1
+    },
+   
     input: {
         borderWidth: 2,
         height: 40,
         width: '90%',
         borderRadius: 20,
-        borderColor: 'black',
+        borderColor: 'rgb (0,0,0)',
         padding: 10,
-        margin: 10
+        margin: 10,
+        backgroundColor: 'rgb(128, 128, 128)',
+        color: 'rgb(0,0,0)'
     },
     to: {
         width: 200,

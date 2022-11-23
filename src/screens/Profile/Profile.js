@@ -127,6 +127,7 @@ class Profile extends Component {
 const styles = StyleSheet.create({
   container0: {
     fontFamily: 'monospace',
+    color: 'rgb(0,0,0)',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
   },
   container3: {
     fontFamily: 'monospace',
+    color: 'rgb(0,0,0)',
     flex: 5
   },
   image: {
@@ -150,7 +152,8 @@ const styles = StyleSheet.create({
     fontFamily: 'monospace',
     fontSize: 16,
     margin: 15,
-    backgroundColor: 'rgb(186, 0, 0)',
+    backgroundColor: 'rgb(0, 0, 0)',
+    color: 'rgb(128, 128, 128)',
     borderRadius: 20,
     textAlign: 'center',
     padding: 5
