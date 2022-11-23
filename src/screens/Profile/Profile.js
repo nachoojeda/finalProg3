@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList, Image } from 'react
 import React, { Component } from 'react'
 import { auth, db } from '../../firebase/config'
 import Posteo from '../../components/Posteo/Posteo';
+import MiPosteo from '../../components/MiPosteo/MiPosteo'
 
 //Nombre de usuario. 
 // Email del usuario.
@@ -113,7 +114,7 @@ class Profile extends Component {
         <View style={styles.container3}> <FlatList
           data={this.state.allPosts}
           keyExtractor={item => item.id.toString()}
-          renderItem={({ item }) => <Posteo navigation={this.props.navigation} data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
+          renderItem={({ item }) => <MiPosteo navigation={this.props.navigation} data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
         />  </View>
 
 

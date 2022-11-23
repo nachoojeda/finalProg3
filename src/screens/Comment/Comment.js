@@ -42,7 +42,15 @@ import { Text, View, TextInput, TouchableOpacity, StyleSheet,FlatList} from 'rea
     render() {
       return (
         <View>
+          {this.state.data?.comments?.length === 0 ?
           <View style={styles.texto}>
+            <Text>
+              No hay comentarios!
+            </Text> 
+            
+          </View>
+        :
+        <View style={styles.texto}>
             <FlatList
             data={this.state.data.comments}
             keyExtractor={item => item.createdAt.toString()}
@@ -53,6 +61,8 @@ import { Text, View, TextInput, TouchableOpacity, StyleSheet,FlatList} from 'rea
               }
             />
           </View>
+        }
+          
           <View style={styles.boton}>
             <TextInput
               onChangeText={text => this.setState({newComment: text})}

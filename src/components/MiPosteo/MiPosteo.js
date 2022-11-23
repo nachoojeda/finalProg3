@@ -57,10 +57,19 @@ class Posteo extends Component {
     .catch(e => console.log(e))
   }
 
+  deletePost(){
+    db.collection('post')
+    .doc(this.props.id)
+    .delete({ 
+    })
+    .then()
+}
 
   render() {
+    console.log(this.props)
     return (
       <View style={styles.contenedor}>
+         
         <TouchableOpacity onPress={()=> this.props.navigation.navigate(
         'HomeNavigation',
         {
@@ -70,7 +79,7 @@ class Posteo extends Component {
           }
         }
       )}>
-        <Text style={styles.texto}> Posteo de : {this.props.data.owner}</Text>
+        <Text style={styles.texto}> Posteo de : {this.props.data.owner} </Text>
       </TouchableOpacity>
         <Image style={styles.image} 
                          source={{uri:this.props.data.foto}}
@@ -103,7 +112,10 @@ class Posteo extends Component {
             <Text style={styles.boton}> Agregar comentario</Text>
           </TouchableOpacity>
         </View>
-        
+        <View>
+        <TouchableOpacity style={styles.boton} onPress={()=> this.deletePost()}> <Text>Borrar Post</Text> </TouchableOpacity>
+        </View>
+       
       </View>
 
     )
