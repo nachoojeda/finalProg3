@@ -8,7 +8,8 @@ class Buscador extends Component {
         this.state =
         {
             infoUser: [],
-            allUsers: []
+            allUsers: [],
+            busqueda:''
         };
     }
     componentDidMount() {
@@ -21,7 +22,7 @@ class Buscador extends Component {
                 })
             })
             this.setState({
-                infoUser: users,
+                infoUser: [],
                 allUsers: users
             },
                 () => console.log(this.state.infoUser)
@@ -31,13 +32,16 @@ class Buscador extends Component {
     // evitarSubmit(event) {
     //     event.preventDefault();
     // }
-   
-    buscador(usuarioBuscado){
-       let  resultadoBusqueda = this.state.allUsers.filter((item)=>{
-       return (item.data.creador.includes(usuarioBuscado) ? item.data.creador.includes(usuarioBuscado) : item.data.nombreDeUsuario.includes(usuarioBuscado))
-       })
-       this.setState({infoUser: resultadoBusqueda, busqueda: usuarioBuscado})
-       
+
+    buscador(usuarioBuscado) {
+        let resultadoBusqueda = []
+        usuarioBuscado == '' ?
+            this.setState({ infoUser: resultadoBusqueda, busqueda: usuarioBuscado }) :
+            resultadoBusqueda = this.state.allUsers.filter((item) => {
+                return (item.data.creador.includes(usuarioBuscado) ? item.data.creador.includes(usuarioBuscado) : item.data.nombreDeUsuario.includes(usuarioBuscado))
+            })
+        this.setState({ infoUser: resultadoBusqueda, busqueda: usuarioBuscado })
+
     }
 
     render() {
@@ -50,40 +54,47 @@ class Buscador extends Component {
                     onChangeText={(text) => this.buscador(text)}
                     value={this.state.busqueda}
                 />
-               {/* <TouchableOpacity onSubmit={(event) => this.evitarSubmit(event)} style={styles.to}>
+                {/* <TouchableOpacity onSubmit={(event) => this.evitarSubmit(event)} style={styles.to}>
                     <Text>Search</Text>
                 </TouchableOpacity>  */}
-                 <Text>Quizas conozcas...</Text>
-                 <FlatList
-                    data={this.state.infoUser}
-                    keyExtractor={item => item.id.toString()}
-                    renderItem={({ item }) => <Text> {item.data.creador} ({item.data.nombreDeUsuario})</Text>} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
-                 />
+                <Text>Quizas conozcas...</Text>
+                {(this.state.infoUser.length == 0 && this.state.busqueda != '') ?
+                    <Text>El email o el nombre de usuario no existe</Text>
+                    :
+                    <FlatList
+                        data={this.state.infoUser}
+                        keyExtractor={item => item.id.toString()}
+                        renderItem={({ item }) => <TouchableOpacity onPress={() => auth.currentUser.email === item.data.creador ? this.props.navigation.navigate('Profile', { email: item.data.creador }) : this.props.navigation.navigate('FriendProfile', { email: item.data.creador })}>
+                            <Text> {item.data.creador} ({item.data.nombreDeUsuario})</Text>
+                        </TouchableOpacity>} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
+                    />                     
+                }
             </View>
-            
+
         );
     }
 }
 const styles = StyleSheet.create({
-    input:{
-        borderWidth:2,
-        height:40,
-        width:'90%',
-        borderRadius:20,
-        borderColor:'black',
-        padding:10,
-        margin:10
+    input: {
+        borderWidth: 2,
+        height: 40,
+        width: '90%',
+        borderRadius: 20,
+        borderColor: 'black',
+        padding: 10,
+        margin: 10
     },
-   to:{
-    width:200,
-    height:50,
-    margin: 5,
-    backgroundColor:'deepskyblue',
-    textAlign:'center',
-    borderRadius:40,
-    alignItems:'center',
-    justifyContent:'center',
-    marginTop:10
-}})
+    to: {
+        width: 200,
+        height: 50,
+        margin: 5,
+        backgroundColor: 'deepskyblue',
+        textAlign: 'center',
+        borderRadius: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 10
+    }
+})
 
 export default Buscador

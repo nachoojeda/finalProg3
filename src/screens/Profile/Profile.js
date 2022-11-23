@@ -30,22 +30,22 @@ class Profile extends Component {
   componentDidMount() {
 
     db.collection('post').where('owner', '==', auth.currentUser.email)
-    .orderBy('createdAt' , 'desc')
-    .onSnapshot(docs => {
-      let posts = []
-      docs.forEach(doc => {
-        posts.push({
-          id: doc.id,
-          data: doc.data()
+      .orderBy('createdAt', 'desc')
+      .onSnapshot(docs => {
+        let posts = []
+        docs.forEach(doc => {
+          posts.push({
+            id: doc.id,
+            data: doc.data()
+          })
         })
-      })
-      this.setState({
-        allPosts: posts
-      },
-        () => console.log(this.state.allPosts)
-      )
+        this.setState({
+          allPosts: posts
+        },
+          () => console.log(this.state.allPosts)
+        )
 
-    })
+      })
 
     db.collection('users')
       .where('creador', '==', auth.currentUser.email)
@@ -103,7 +103,7 @@ class Profile extends Component {
             <ul><Text style={styles.container3}> Tu mail: {auth.currentUser.email} </Text> </ul>
             <ul><Text style={styles.container3}> Tu perfil se creo: {auth.currentUser.metadata.creationTime} </Text> </ul>
           </li>
-          
+
 
           {/* <TouchableOpacity onPress={ () => this.eliminar()}>
                 <Text>Eliminar perfil</Text>
@@ -114,39 +114,39 @@ class Profile extends Component {
           keyExtractor={item => item.id.toString()}
           renderItem={({ item }) => <Posteo navigation={this.props.navigation} data={item.data} id={item.id} />} //RENDERIZA UN COMPONENTE POST que le paso a traves de la prop data toda la info que se guarda en items (data sale del push de doc.data
         />  </View>
-        
+
 
         <TouchableOpacity onPress={() => this.signOut()}>
-            <Text style={styles.boton}> Cerrar tu sesión</Text>
-          </TouchableOpacity>
-          </>
+          <Text style={styles.boton}> Cerrar tu sesión</Text>
+        </TouchableOpacity>
+      </>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container0:{
+  container0: {
     fontFamily: 'monospace',
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  container1:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
+  container1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  container2:{
-    flex:3
+  container2: {
+    flex: 3
   },
-  container3:{
+  container3: {
     fontFamily: 'monospace',
-    flex:5
+    flex: 5
   },
-  image:{
-    height:300
+  image: {
+    height: 300
   },
-  boton:{
+  boton: {
     fontFamily: 'monospace',
     fontSize: 16,
     margin: 15,
@@ -155,6 +155,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 5
 
-},
+  },
 })
 export default Profile

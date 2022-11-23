@@ -42,7 +42,6 @@ import { Text, View, TextInput, TouchableOpacity, StyleSheet,FlatList} from 'rea
     render() {
       return (
         <View>
-        
           <View style={styles.texto}>
             <FlatList
             data={this.state.data.comments}
