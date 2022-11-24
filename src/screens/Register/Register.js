@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {auth, db} from '../../firebase/config';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image} from 'react-native';
+//importa camera, copiar y pegar onimageload, agregar operador ternario showcamera
 
 class Registro extends Component {
     constructor(){
@@ -15,7 +16,14 @@ class Registro extends Component {
             errors: "",
         }
     }
-
+    componentDidMount(){ 
+        auth.onAuthStateChanged(
+        user => {
+            if (user){
+                this.props.navigation.navigate('TabNavigation')
+            }
+        })
+    }
 
 registrarUsuario(email,pass, userName, bio, foto){
   auth.createUserWithEmailAndPassword(email,pass)
