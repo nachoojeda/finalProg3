@@ -153,7 +153,7 @@ boton:{
   fontFamily: 'monospace',
   fontSize: 16,
   margin: 10,
-  backgroundColor: 'rgb(173, 216, 230)',
+  backgroundColor: 'rgb(128, 128, 128)',
   borderRadius: 20,
   textAlign: 'center',
   padding: 5

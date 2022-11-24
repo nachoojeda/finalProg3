@@ -12,18 +12,19 @@ const Tab  = createBottomTabNavigator();
 export default function TabNav() {
   return (
     <Tab.Navigator>
+      
       <Tab.Screen 
         name='HomeNavigation' 
         component={HomeNavigation}
         options = {{ headerShown: false ,
-          tabBarIcon: () => <FontAwesome name='home' size={24} color='lightblue'/>
+          tabBarIcon: () => <FontAwesome name='home' size={24} color='grey'/>
           }}
       />
       <Tab.Screen
         name= 'Search'
         component={Buscador}
         options = {{  headerShown: false ,
-          tabBarIcon: () => <FontAwesome name='search' size={24} color='lightblue'/>
+          tabBarIcon: () => <FontAwesome name='search' size={24} color='grey'/>
           
           }}
       />
@@ -31,14 +32,14 @@ export default function TabNav() {
       name='Post'
       component={Post}
       options = {{  headerShown: false ,
-        tabBarIcon: () => <FontAwesome name='plus' size={24} color='lightblue' />
+        tabBarIcon: () => <FontAwesome name='plus' size={24} color='grey' />
         }}
        />
        <Tab.Screen
       name='Profile'
       component={Profile}
       options = {{  headerShown: false ,
-        tabBarIcon: () => <FontAwesome name='user' size={24} color='lightblue' />
+        tabBarIcon: () => <FontAwesome name='user' size={24} color='grey' />
         }}
        />
        
