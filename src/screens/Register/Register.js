@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {auth, db} from '../../firebase/config';
 import {View, Text, StyleSheet, TextInput, TouchableOpacity, Image} from 'react-native';
-//importa camera, copiar y pegar onimageload, agregar operador ternario showcamera
+import Camara from '../../components/Camara/Camara';
 
 class Registro extends Component {
     constructor(){
@@ -14,6 +14,8 @@ class Registro extends Component {
             bio: "",
             foto: "",
             errors: "",
+            showCamara: false,
+            disabled: true
         }
     }
     componentDidMount(){ 
@@ -54,6 +56,15 @@ registrarUsuario(email,pass, userName, bio, foto){
             errors: `El error es: ${error.message}`
         })
         )}
+
+
+        onImageUpload(url){
+            this.setState({
+                foto: url,
+                showCamera: false,
+            })
+            
+        }
 
         render(){
             return(
@@ -106,15 +117,17 @@ registrarUsuario(email,pass, userName, bio, foto){
                             value = {this.state.bio}
                             style={styles.texto}
                         />  
-                        <TextInput 
-                            placeholder= 'Foto de Perfil'
-                            keyboardType= 'default'
-                            onChangeText={ texto => this.setState({foto : texto})}
-                            value = {this.state.foto}
-                            style={styles.texto}
-                        />    
+                       
     
-                
+                      { this.state.showCamera ?
+                        <View style={{width: '100vw', heigth: '100vh'}}>
+                            <Camara onImageUpload={url => this.onImageUpload(url)}/> 
+                        </View> 
+                        :
+                        <TouchableOpacity style={styles.fotoperfil} onPress={()=> this.setState({showCamera:true})}>
+                            <Text>Subir foto de perfil </Text>
+                        </TouchableOpacity>
+                    }
     
     
                 {
@@ -182,7 +195,7 @@ registrarUsuario(email,pass, userName, bio, foto){
 
         botonerror:{
             fontFamily: 'monospace',
-            fontSize: 16,
+            fontSize: 18,
             margin: 15,
             backgroundColor: 'rgb(70,70,70)',
             borderRadius: 20,
@@ -193,7 +206,7 @@ registrarUsuario(email,pass, userName, bio, foto){
 
         boton:{
             fontFamily: 'monospace',
-            fontSize: 16,
+            fontSize: 18,
             margin: 15,
             backgroundColor: 'rgb(70,70,70)',
             borderRadius: 20,
@@ -212,9 +225,18 @@ registrarUsuario(email,pass, userName, bio, foto){
             height: 170,
             width: 140 
 
-        }
+        },
 
-        
+        fotoperfil:{
+            color: 'rgb(300,300,300)',
+            backgroundColor: 'rgb(50,50,50)',
+            fontFamily: 'monospace',
+            fontSize: 9,
+            margin: 20,
+            borderRadius: 10,
+            textAlign: 'center',
+            padding: 8
+        }
 
     })
     
